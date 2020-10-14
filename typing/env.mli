@@ -431,3 +431,9 @@ val scrape_alias: t -> module_type -> module_type
 val check_value_name: string -> Location.t -> unit
 
 val print_address : Format.formatter -> address -> unit
+
+(** Folding *)
+
+ val fold_modules :
+           (Misc.Stdlib.String.Map.key -> Path.t -> Types.module_declaration -> 'a -> 'a) ->
+           Longident.t option -> t -> 'a -> 'a
